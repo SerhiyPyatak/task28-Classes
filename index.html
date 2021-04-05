@@ -4,9 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Classes</title>
     <link rel="stylesheet" href="css/style.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1>Тема 28: Classes</h1>
+    <form action="#" method="GET" class="taskform">
+      <fieldset class="taskform__taskunit" id="task1">
+        <legend>Задание №1</legend>
+        <p>
+          Реализовать класс, описывающий окружность. В классе должны быть
+          следующие компоненты: 
+          <ul>
+            <li>
+              поле, хранящее радиус окружности;
+            </li>
+            <li>
+              get-свойство,
+              возвращающее радиус окружности;
+            </li>
+            <li>
+              set-свойство, устанавливающее радиус
+              окружности;
+            </li>
+            <li>
+              get-свойство, возвращающее диаметр окружности;
+            </li>
+            <li>
+              метод, вычисляющий площадь окружности;
+            </li>
+            <li>
+              метод, вычисляющий длину окружности.
+            </li>
+          </ul>
+            
+          Продемонстрировать работу свойств и методов.
+        </p>
+        <div class="buttonsblock">
+          <button onclick="exploreCircle()">Explore Circle</button>
+        </div>
+        <div class="taskform__playlist-block">
+          <ol class="taskform__songs-playlist" id="songs-playlist"></ol>
+        </div>
+      </fieldset>
+
+      <fieldset class="taskform__taskunit" id="task2">
+        <legend>Задание №2</legend>
+        <p>
+          Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
+          <ul>
+            <li>
+              поле, которое хранит цвет маркера;
+            </li>
+            <li>
+              поле, которое хранит количество чернил в маркере (в процентах);
+            </li>
+            <li>
+              метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех пор, пока в маркере есть чернила; один не пробельный символ – это 0,5% чернил в маркере).
+            </li>
+          </ul>
+          Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для заправки маркера.
+
+          Продемонстрировать работу написанных методов. 
+        </p>
+
+        <div id="marker-whiteboard"></div>
+        
+        <div class="buttonsblock">
+          <button id="simple-marker-btn" onclick="useSimpleMarker()">Simple Marker</button>
+          <button id="renewable-marker-btn" onclick="useRenewableMarker()">Renewable Marker</button>
+        </div>
+      </fieldset>
+      <fieldset class="taskform__taskunit" id="task3">
+        <legend>Задание №3</legend>
+        <p>
+          Создать HTML-страницу со светофором и кнопкой, которая переключает
+          светофор на следующий цвет.
+        </p>
+        <div class="taskform__semaphore" id="semaphore">
+          <div class="taskform__semaphore_lamp" id="lamp0"></div>
+          <div class="taskform__semaphore_lamp" id="lamp1"></div>
+          <div class="taskform__semaphore_lamp" id="lamp2"></div>
+        </div>
+        <div class="buttonsblock">
+          <button onclick="switchSemaphore()">Switch Semaphore</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
 </html>
