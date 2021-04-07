@@ -63,7 +63,11 @@ class Marker {
 		const symbols = [];
 		userString.split('').forEach(element => {
 			if (element !== ' ') {
-				this.setInk = this.getInk - .5;
+				if (this.getInk > 0) {
+					this.setInk = this.getInk - .5;
+				} else {
+					this.setInk = 0;
+				};
 			}
 			if (this.getInk > 0) symbols.push(element);
 		});
@@ -74,23 +78,48 @@ class Marker {
 	}
 }
 
+class RenewableMarker extends Marker {
+	refuel() {
+		super.setInk = 100;
+	}
+}
+
 let mySimpleMarker;
 let myRenewableMarker;
 let isSimpleMarkerCreated = false;
 let isRenewableMarkerCreated = false;
 
-function useSimpleMarker() {
-	if (!isSimpleMarkerCreated) {
-		mySimpleMarker = new Marker;
-		mySimpleMarker.setColor = prompt('Enter marker color, please :)');
-		isSimpleMarkerCreated = true;
+function useMarker(isRefuel = false) {
+	let myMarker;
+	if (!isRefuel) {
+		if (!isSimpleMarkerCreated) {
+			mySimpleMarker = new Marker;
+			mySimpleMarker.setColor = prompt('Enter marker color, please :)');
+			isSimpleMarkerCreated = true;
+		}
+		myMarker = mySimpleMarker;
+	} else {
+		if (!isRenewableMarkerCreated) {
+			myRenewableMarker = new RenewableMarker;
+			myRenewableMarker.setColor = prompt('Enter marker color, please :)');
+			isRenewableMarkerCreated = true;
+		}
+		myMarker = myRenewableMarker;
 	}
-	let drawInput = prompt('Type string for whiteboard');
-	let oWrite = mySimpleMarker.print(drawInput);
-	let drawBox = document.createElement('p');
-	drawBox.style.color = mySimpleMarker.getColor;
-	drawBox.innerHTML = oWrite.printedString;
-	document.getElementById('marker-whiteboard').appendChild(drawBox);
 	
-	alert(`Ink remainder in your simple marker is: ${oWrite.inkRemainder}%`);
+	let drawInput = prompt('Type string for whiteboard');
+	let oWrite = myMarker.print(drawInput);
+	let drawBox = document.createElement('p');
+	document.getElementById('marker-whiteboard').appendChild(drawBox);
+	drawBox.style.color = myMarker.getColor;
+	drawBox.innerHTML = oWrite.printedString;
+	
+	alert(`Ink remainder in used marker is: ${oWrite.inkRemainder}%`);
+}
+
+function refuelMarker() {
+	if (isRenewableMarkerCreated) {
+		myRenewableMarker.refuel();
+		alert('Now marker 100% charged!');
+	}
 }

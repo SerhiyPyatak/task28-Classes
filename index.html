@@ -73,24 +73,25 @@
         <div id="marker-whiteboard"></div>
         
         <div class="buttonsblock">
-          <button id="simple-marker-btn" onclick="useSimpleMarker()">Simple Marker</button>
-          <button id="renewable-marker-btn" onclick="useRenewableMarker()">Renewable Marker</button>
+          <button id="simple-marker-btn" onclick="useMarker()">Simple Marker</button>
+          <button id="renewable-marker-btn" onclick="useMarker(true)">Renewable Marker</button>
+          <button id="refuel-marker" onclick="refuelMarker()">Renewable Marker Refuel</button>
         </div>
       </fieldset>
       <fieldset class="taskform__taskunit" id="task3">
         <legend>Задание №3</legend>
         <p>
-          Создать HTML-страницу со светофором и кнопкой, которая переключает
-          светофор на следующий цвет.
+          Реализовать класс Employee, описывающий работника, и создать массив работников банка.
+
+          Реализовать класс EmpTable для генерации HTML-кода таблицы со списком работников банка. Массив работников необходимо передавать через конструктор, а получать HTML-код с помощью метода getHtml().
+
+          Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
         </p>
-        <div class="taskform__semaphore" id="semaphore">
-          <div class="taskform__semaphore_lamp" id="lamp0"></div>
-          <div class="taskform__semaphore_lamp" id="lamp1"></div>
-          <div class="taskform__semaphore_lamp" id="lamp2"></div>
-        </div>
+        <!--
         <div class="buttonsblock">
           <button onclick="switchSemaphore()">Switch Semaphore</button>
         </div>
+        -->
       </fieldset>
     </form>
   </body>

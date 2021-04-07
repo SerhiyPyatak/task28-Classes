@@ -31,3 +31,12 @@ button {
 	height: 			40px;
 	width: 				140px;
 }
+
+#marker-whiteboard {
+    word-break:         break-all;
+}
+
+.buttonsblock {
+    display: flex;
+    align-items: center;
+}
